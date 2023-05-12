@@ -3,8 +3,8 @@ import {
 } from "react-native";
 import React, { useState } from 'react';
 import Logo from '../assets/images/logo.png';
-import CustomInput from "../components/CustomInput";
-import CustomButton from "../components/CustomButton";
+import CustomInput from "../components/CustomInput.js";
+import CustomButton from "../components/CustomButton.js";
 
 const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
@@ -18,7 +18,7 @@ const Login = ({ navigation }) => {
         setPassword('');
     }
 
-    return (
+    return(
         <View style={styles.view}>
             <Image
                 source={Logo}
@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
     view: {
         alignItems: 'center',
         padding: 20,
-        backgroundColor: '#00FF87',
+        //backgroundColor: '#00FF87',
+        backgroundImage: "linear-gradient(to bottom, #00FF87, #FEF957)",
         flex: 1
 
     },
@@ -69,4 +70,5 @@ const styles = StyleSheet.create({
         color: "#6200ee",
     },
 });
+
 export default Login;

@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Button } from 'react-native'
 import React, { useContext } from 'react'
 import { DataContext, Fornecedor } from '../context/dataContext'
-import CustomButton from '../components/CustomButton'
+import CustomButton from '../components/CustomButton.js'
 
 
 const Home = () => {

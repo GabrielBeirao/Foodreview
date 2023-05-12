@@ -5,9 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import Home from './src/screens/Home';
-import Login from '../comidareview/src/screens/Login';
-import RegisterUser from '../comidareview/src/screens/RegisterUser';
+// import Home from '../App/src/screens/Home.js';
+import Login from './src/screens/Login.js';
+import RegisterUser from './src/screens/RegisterUser.js';
 
 
 const Stack = createNativeStackNavigator();
