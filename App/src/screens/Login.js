@@ -1,42 +1,61 @@
-import {
-    StyleSheet, TouchableOpacity, View, Image, useWindowDimensions, Text
-} from "react-native";
-import React, { useState } from 'react';
+import { StyleSheet, TouchableOpacity, View, Image, useWindowDimensions, Text, TextInput } from "react-native";
+import React, { useState, useContext } from 'react';
 import Logo from '../assets/images/logo.png';
-import CustomInput from "../components/CustomInput.js";
-import CustomButton from "../components/CustomButton.js";
+import CustomInput from "../components/CustomInput";
+import CustomButton from "../components/CustomButton";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import api from '../api';
+import { Context } from '../context/dataContext';
 
 const Login = ({ navigation }) => {
+    const { dispatch } = useContext(Context);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { height } = useWindowDimensions();
-
-    const onLoginPressed = () => {
-        alert("Logged in with User " + email + " and " + password);
-        setEmail('');
-        setPassword('');
+    const onLoginPressed = async () => {
+        try {
+            const authData = await api.post('/login', {
+                email: email,
+                password: password
+            })
+            if(authData.status === 200){
+                await AsyncStorage.setItem('token', authData.data.token)
+                dispatch({type:'logIn', payload: true})
+            } else {
+                alert('Email ou Senha Inválidos')
+                setPassword('')
+            }
+        } catch (error) {
+            alert('Email ou Senha Inválidos')
+            setPassword('')
+        }
     }
 
-    return(
+    const { height } = useWindowDimensions();
+
+    return (
         <View style={styles.view}>
             <Image
                 source={Logo}
                 style={[styles.logo, { height: height * 0.3 }]}
                 resizeMode="contain"
             />
+
             <CustomInput
                 placeholder="Email"
                 value={email}
                 setValue={setEmail}
             />
+
             <CustomInput
                 placeholder="Password"
                 value={password}
                 setValue={setPassword}
                 secureTextEntry={true}
             />
+
             <CustomButton text="Login" onPress={onLoginPressed} />
+
             <TouchableOpacity
                 onPress={() => navigation.navigate("RegisterUser")}
             >
@@ -47,6 +66,7 @@ const Login = ({ navigation }) => {
                     </Text>
                 </Text>
             </TouchableOpacity>
+
         </View>
     )
 };
