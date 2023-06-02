@@ -6,8 +6,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Entypo } from '@expo/vector-icons'
 
 import Home from './Home'
-import Restaurants from './Restaurants'
-import Reviews from './Reviews'
+import Restaurants from '../screens/restaurant/Restaurants'
+import Reviews from '../screens/review/Reviews'
 
 const Tab = createBottomTabNavigator();
 
