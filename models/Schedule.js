@@ -1,10 +1,10 @@
 import { Sequelize } from 'sequelize';
 import connection from '../config/db.js';
-import Restaurant from './Restaurant.js';
+import Studio from './Studio.js';
 import User from './User.js';
 
-const Review = connection.define(
-    'review',
+const Schedule = connection.define(
+    'schedule',
      {
         id: {
             type: Sequelize.INTEGER,
@@ -22,11 +22,11 @@ const Review = connection.define(
             
         },
  
-        idRestaurant: {
+        idStudio: {
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
-                model: 'restaurants',
+                model: 'studios',
                 key: 'id'
             }
             
@@ -43,12 +43,12 @@ const Review = connection.define(
 
      }
 );
-Review.belongsTo(Restaurant, {
-    foreignKey: 'idRestaurant'
+Schedule.belongsTo(Studio, {
+    foreignKey: 'idStudios'
 });
 
-Review.belongsTo(User, {
+Schedule.belongsTo(User, {
     foreignKey: 'idUser'
 });
 
-export default Review;
+export default Schedule;

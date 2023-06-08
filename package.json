@@ -1,7 +1,7 @@
 {
-  "name": "foodreview",
+  "name": "jambooker",
   "version": "1.0.0",
-  "description": "Aplicativo foodreview para avaliação de restaurantes",
+  "description": "Aplicativo jambooker para agendar ensaios musicais",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "foodreview reviews restaurants"
+    "url": "jambooker schedules studios"
   },
   "keywords": [
-    "foodreview",
-    "reviews",
-    "restaurants"
+    "jambooker",
+    "schedules",
+    "studios"
   ],
   "author": "Gabriel Beirao",
   "license": "ISC",

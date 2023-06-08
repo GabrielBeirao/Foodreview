@@ -5,44 +5,44 @@ import api from '../../api'
 import { Entypo } from '@expo/vector-icons'
 import CustomButton from '../../components/CustomButton'
 
-const Restaurants = ({ navigation }) => {
+const Studios = ({ navigation }) => {
     const { state, dispatch } = useContext(Context)
 
-    const [restaurants, setRestaurants] = useState({});
+    const [studios, setStudios] = useState({});
 
     useEffect(() => {
         const onScreenLoad = async () => {
-            const list = await api.get('/restaurant/find');
-            setRestaurants(list.data.restaurants)
+            const list = await api.get('/studios/find');
+            setStudios(list.data.studios)
             dispatch({type: "update", payload: false})
         }
         onScreenLoad();
     }, [state.update]
     )
 
-    const seeReview = async (item) => {
-        await dispatch({type: 'setRestaurant', payload: item});
-        navigation.navigate('RestaurantReviews');
+    const seeSchedule = async (item) => {
+        await dispatch({type: 'setStudios', payload: item});
+        navigation.navigate('StudiosSchedule');
     }
 
-    const newReview = async (item) => {
-        await dispatch({type: 'setRestaurant', payload: item});
-        navigation.navigate('RegisterReview')
+    const newSchedule = async (item) => {
+        await dispatch({type: 'setStudio', payload: item});
+        navigation.navigate('RegisterSchedule')
     }
 
     return (
         <View style={styles.view}>
             {state.isAdmin ? (
-                <CustomButton text="Novo Restaurante" onPress={() => navigation.navigate("RegisterRestaurant")} />
+                <CustomButton text="Studios pesquisados" onPress={() => navigation.navigate("RegisterStudio")} />
             ) : (
                 <></>
             )}
             <FlatList
-                data={restaurants}
+                data={studios}
                 renderItem={({ item }) => {
                     return (
                         <View style={styles.container}>
-                            <TouchableOpacity style={styles.text} onPress={() => seeReview(item)}>
+                            <TouchableOpacity style={styles.text} onPress={() => seeSchedule(item)}>
                                     <Text style={styles.title}>{item.name}</Text>
                                     <Text style={styles.item}>{item.type}</Text>
                                     <Text style={styles.item}>{item.description}</Text>
@@ -53,7 +53,7 @@ const Restaurants = ({ navigation }) => {
                                 size={60}
                                 color="green"
                                 style={styles.icon}
-                                onPress={() => newReview(item)}
+                                onPress={() => newSchedule(item)}
                             />
                         </View>
                     )
@@ -67,7 +67,7 @@ const Restaurants = ({ navigation }) => {
     )
 }
 
-export default Restaurants
+export default Studios
 
 const styles = StyleSheet.create({
     view: {

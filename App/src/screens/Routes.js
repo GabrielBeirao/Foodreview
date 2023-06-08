@@ -6,8 +6,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Entypo } from '@expo/vector-icons'
 
 import Home from './Home'
-import Restaurants from '../screens/restaurant/Restaurants'
-import Reviews from '../screens/review/Reviews'
+import Studios from './studios/Studios'
+import Schedule from './schedule/Schedule'
+import Search from './search/Search'
+import Settings from './Settings'
 
 const Tab = createBottomTabNavigator();
 
@@ -27,35 +29,54 @@ const Routes = ({ navigation }) => {
     }}>
 
     <Tab.Screen
-        name='Home'
+        name='User'
         component={Home}
         options={{
             tabBarIcon: () => (
-                <Entypo name='home' size={30} />
+                <Entypo name='user' size={30} />
             )
         }}
     />
 
     <Tab.Screen
-            name='Restaurants'
-            component={Restaurants}
+            name='Favoritos' 
+            component={Studios} //Ultimos studios pesquisados
             options={{
                 tabBarIcon: () => (
-                    <Entypo name='bowl' size={30} />
+                    <Entypo name='star' size={30} />
                 )
             }}
         />
 
     <Tab.Screen
-            name='Reviews'
-            component={Reviews}
+            name='Search'
+            component={Search}
             options={{
                 tabBarIcon: () => (
-                    <Entypo name='fingerprint' size={30} />
+                    <Entypo name='circle-with-plus' size={30} />
                 )
             }}
         />
 
+    <Tab.Screen
+            name='Schedule'
+            component={Schedule}
+            options={{
+                tabBarIcon: () => (
+                    <Entypo name='calendar' size={30} />
+                )
+            }}
+        />
+
+    <Tab.Screen style={styles.menu}
+            name='Settings'
+            component={Settings}
+            options={{
+                tabBarIcon: () => (
+                    <Entypo name='cog' size={30} />
+                )
+            }}
+        />
 
     </Tab.Navigator>
   )

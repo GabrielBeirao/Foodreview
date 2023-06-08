@@ -82,20 +82,21 @@ const styles = StyleSheet.create({
     view: {
         alignItems: 'center',
         padding: 20,
-        //backgroundColor: '#00FF87',
-        backgroundImage: "linear-gradient(to bottom, #00FF87, #FEF957)",
+        backgroundColor: '#ede9ea',
         flex: 1
-    },
 
+    },
     logo: {
         width: '70%',
-        maxWidth: 300,
-        maxHeight: 200,
+        maxHeight: 150,
+       
+    
     },
     loginText: {
         fontWeight: "bold",
-        color: "#6200ee",
-    },
+        color: "#c15eff",
+    }
+
 });
 
 export default RegisterUser;

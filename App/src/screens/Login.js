@@ -1,6 +1,6 @@
 import { StyleSheet, TouchableOpacity, View, Image, useWindowDimensions, Text, TextInput } from "react-native";
 import React, { useState, useContext } from 'react';
-import Logo from '../assets/images/logo.png';
+import Logo from '../../src/assets/images/logo.png';
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -74,20 +74,19 @@ const styles = StyleSheet.create({
     view: {
         alignItems: 'center',
         padding: 20,
-        //backgroundColor: '#00FF87',
-        backgroundImage: "linear-gradient(to bottom, #00FF87, #FEF957)",
+        backgroundColor: '#ede9ea',
         flex: 1
 
     },
     logo: {
         width: '70%',
-        maxWidth: 300,
-        maxHeight: 200,
+        maxHeight: 150,
+       
     
     },
     createAccountText: {
         fontWeight: "bold",
-        color: "#6200ee",
+        color: "#c15eff",
     },
 });
 

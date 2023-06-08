@@ -5,20 +5,20 @@ import api from '../../api'
 import Stars from 'react-native-stars';
 import { Entypo } from "@expo/vector-icons";
 
-const RestaurantReviews = ({ navigation }) => {
+const StudiosSchedule = ({ navigation }) => {
     const { state, dispatch } = useContext(Context)
 
-    const [reviews, setReviews] = useState({});
+    const [schedule, setSchedule] = useState({});
 
     useEffect(() => {
         const onScreenLoad = async () => {
-            const list = await api.get('/review/findByUser', {
+            const list = await api.get('/schedule/findByUser', {
                 params: {
                     idUser: state.idUser,
                   }
             });
             console.log(list);
-            setReviews(list.data.reviews)
+            setSchedule(list.data.schedule)
             dispatch({type: "update", payload: false})
         }
         onScreenLoad();
@@ -28,12 +28,12 @@ const RestaurantReviews = ({ navigation }) => {
     return (
         <View style={styles.view}>
             <FlatList
-                data={reviews}
+                data={schedule}
                 renderItem={({ item }) => {
                     return (
                         <View style={styles.container}>
                             <View style={styles.text}>
-                                <Text style={styles.item}>{item.restaurant.name}</Text>
+                                <Text style={styles.item}>{item.studio.name}</Text>
                                 <Text style={styles.title}>{item.comment}</Text>
                                 <Stars
                                     count={5}
@@ -57,7 +57,7 @@ const RestaurantReviews = ({ navigation }) => {
     )
 }
 
-export default RestaurantReviews
+export default StudiosSchedule
 
 const styles = StyleSheet.create({
     view: {

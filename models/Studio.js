@@ -1,8 +1,8 @@
 import { Sequelize } from 'sequelize';
 import connection from '../config/db.js';
 
-const Restaurant = connection.define(
-    'restaurant',
+const Studio = connection.define(
+    'studio',
      {
         id: {
             type: Sequelize.INTEGER,
@@ -32,4 +32,4 @@ const Restaurant = connection.define(
      }
 );
 
-export default Restaurant;
+export default Studio;

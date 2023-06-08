@@ -1,16 +1,16 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import RegisterReview from './RegisterReview';
-import Reviews from './Reviews';
+import RegisterSchedule from './RegisterSchedule';
+import Schedule from './Schedule'
 
 const Stack = createNativeStackNavigator();
 
-const ReviewRoutes = ({ navigation }) => {
+const ScheduleRoutes = ({ navigation }) => {
     return (
             <Stack.Navigator screenOptions={{ headerShown: false }} >
-                <Stack.Screen name="ReviewsMain" component={Reviews} />
+                <Stack.Screen name="ReviewsMain" component={Schedule} />
             </Stack.Navigator>
     )
 }
 
-export default ReviewRoutes
+export default ScheduleRoutes

@@ -25,11 +25,9 @@ const CustomInput = ({ value, setValue, placeholder, secureTextEntry }) => {
 const styles = StyleSheet.create({
     //container é o que fica por FORA!! - aqui no caso, tá com a cor roxa, sombra e borda leve
     container: {
-        backgroundColor: '#ffafcc',
+        backgroundColor: '#b1fa00',
         width: '100%',
         marginVertical: 5,
-        borderWidth: 2,
-        borderColor: 'black',
         borderRadius: 10,
         shadowRadius: 0
         

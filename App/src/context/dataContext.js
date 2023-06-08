@@ -32,11 +32,11 @@ const reducer = (state, action) => {
                 isAdmin: action.payload.admin, 
                 name: action.payload.name,
             }
-        case "setRestaurant":
+        case "setStudio":
             return { 
                 ...state, 
-                idRestaurant: action.payload.id,
-                nameRestaurant: action.payload.name                
+                idStudio: action.payload.id,
+                nameStudio: action.payload.name                
             }
         case "update":
             return {
