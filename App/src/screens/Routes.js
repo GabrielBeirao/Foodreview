@@ -39,7 +39,7 @@ const Routes = ({ navigation }) => {
     />
 
     <Tab.Screen
-            name='Favoritos' 
+            name='Studios' 
             component={Studios} //Ultimos studios pesquisados
             options={{
                 tabBarIcon: () => (
